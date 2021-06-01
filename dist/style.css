@@ -1,0 +1,23 @@
+h1 { 
+     font-size: xx-large;
+}
+
+h2 {
+     font-size: x-large;
+}
+
+h3 {
+     font-size: large;
+}
+
+.card {
+     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+     width: 18rem;;
+}
+
+.fa-mug-hot, 
+.fa-user-graduate,
+.fa-glasses {
+     color: white;
+     padding-right: 8px;
+}
