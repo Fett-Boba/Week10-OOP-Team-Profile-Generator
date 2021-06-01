@@ -1,0 +1,28 @@
+{
+  "name": "Week10-OOP-Team-Profile-Generator",
+  "version": "1.0.0",
+  "description": "Week10 team profile generator",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Fett-Boba/Week10-OOP-Team-Profile-Generator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Fett-Boba/Week10-OOP-Team-Profile-Generator/issues"
+  },
+  "homepage": "https://github.com/Fett-Boba/Week10-OOP-Team-Profile-Generator#readme",
+  "dependencies": {
+    "inquirer": "^8.1.0",
+    "jest": "^27.0.1"
+  },
+  "devDependencies": {}
+}
