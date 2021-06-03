@@ -1,3 +1,4 @@
+// Inquirer prompts
 const empBasics = [
      {
           name: 'role',
@@ -25,7 +26,7 @@ const empBasics = [
 const mgrOffice = {
      name: 'officeNum',
      type: 'input',
-     message: 'Office Number: ',  
+     message: 'Office Number: ',
 }
 
 const engGitId = {

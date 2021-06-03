@@ -1,3 +1,4 @@
+// Static head HTML
 var head = `<!DOCTYPE html>
 <html lang="en">
   <head>
@@ -34,6 +35,9 @@ var head = `<!DOCTYPE html>
       <div class="row justify-content-center">
       `;
 
+
+
+// Static trailer HTML
 var trl = `      
 </div>
 </div>
@@ -46,5 +50,34 @@ var trl = `
 </body>
 </html>`;
 
+
+// Export the dynamic CARD HTML
+module.exports = (empObj) => {
+     if (empObj.role === 'Manager') {
+          strRole = `<h3><i class="fas fa-mug-hot"></i>${empObj.role}</h3>`;
+          strVar = `<li class="list-group-item">Office Number: ${empObj.officeNumber}</li>`;
+     } else if (empObj.role === 'Engineer') {
+          strRole = `<h3><i class="fas fa-glasses"></i>${empObj.role}</h3>`;
+          strVar = `<li class="list-group-item">Github: <a href="https://github.com/${empObj.github}" target="_blank">${empObj.github}</a></li>`;
+     } else {
+          strRole = `<h3><i class="fas fa-user-graduate"></i>${empObj.role}</h3>`;
+          strVar = `<li class="list-group-item">School: ${empObj.school}</li>`;
+     }
+     return `     
+     <div class="card bg-dark text-white mx-3 mt-3">
+     <div class="card-header">
+       <h2>${empObj.name}</h2>${strRole}
+     </div>
+     <div class="card-body bg-light mb-2">
+       <ul class="list-group">
+         <li class="list-group-item">ID: ${empObj.id}</li>
+         <li class="list-group-item">Email: <a href="mailto:${empObj.email}">${empObj.email}</a></li>${strVar}
+       </ul>
+     </div>
+   </div>
+   `
+}
+
+// Export static HTML head/trl
 module.exports.head = head;
 module.exports.trl = trl;

@@ -1,3 +1,4 @@
+// Intern object JEST tests
 const Intern = require("../lib/Intern");
 
 describe("Intern Class which is a subclass of Employee", () => {

@@ -1,3 +1,4 @@
+// Manager object JEST tests
 const Manager = require("../lib/Manager");
 
 describe("Manager Class which is a subclass of Employee", () => {

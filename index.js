@@ -1,10 +1,13 @@
+// Required APIs
 const inquirer = require('inquirer');
 const fs = require('fs');
 
+// Objects
 const Manager = require('./lib/manager.js');
 const Engineer = require('./lib/engineer.js');
 const Intern = require('./lib/intern.js');
 
+// Inquirer prompts
 const questions = require('./src/questions.js');
 const empBasics = questions.empBasics;
 const mgrOffice = questions.mgrOffice;
@@ -12,10 +15,12 @@ const engGitId = questions.engGitId;
 const intSchool = questions.intSchool;
 const askAgain = questions.askAgain;
 
+// HTML
 const html = require('./src/html.js');
 const strHTML = html.head;
 const strTrl = html.trl;
 
+// Prompt user for members of the team
 function ask() {
      inquirer.prompt(empBasics).then((answers) => {
           if (answers.role === 'Manager') {
@@ -28,80 +33,60 @@ function ask() {
      });
 }
 
+// Add a manager, check if they want to add another person
 function addManager(empInfo) {
-     inquirer.prompt(mgrOffice).then((answers) => { 
+     inquirer.prompt(mgrOffice).then((answers) => {
           const manager = new Manager(empInfo.name, empInfo.id, empInfo.email, answers.officeNum);
           promptForMore(manager);
-     });    
-}
-
-function addEngineer(empInfo) {
-     inquirer.prompt(engGitId).then((answers) => { 
-          const engineer = new Engineer(empInfo.name, empInfo.id, empInfo.email, answers.gitID);
-          promptForMore(engineer); 
      });
 }
 
+// Add an engineer, check if they want to add another person
+function addEngineer(empInfo) {
+     inquirer.prompt(engGitId).then((answers) => {
+          const engineer = new Engineer(empInfo.name, empInfo.id, empInfo.email, answers.gitID);
+          promptForMore(engineer);
+     });
+}
+
+// Add an intern, check if they want to add another person
 function addIntern(empInfo) {
-     inquirer.prompt(intSchool).then((answers) => { 
+     inquirer.prompt(intSchool).then((answers) => {
           const intern = new Intern(empInfo.name, empInfo.id, empInfo.email, answers.school);
           promptForMore(intern);
      });
 }
 
+// Check if they need another person on the team
 function promptForMore(empObj) {
-
      var strCard = updateCard(empObj);
      appendToFile(strCard);
-
      inquirer.prompt(askAgain).then((answers) => {
           if (answers.goAgain === 'Yes') {
                ask();
           } else {
                console.log("Your team is complete");
-               appendToFile(strTrl);          
+               appendToFile(strTrl);
           }
      });
 }
 
+// Build cards depending on role
 function updateCard(empObj) {
-     var strRole = "";
-     var strVar = "";
-     if (empObj.role === 'Manager') {
-          strRole = `<h3><i class="fas fa-mug-hot"></i>${empObj.role}</h3>`;
-          strVar = `<li class="list-group-item">Office Number: ${empObj.officeNumber}</li>`;
-     } else if (empObj.role === 'Engineer') {
-          strRole = `<h3><i class="fas fa-glasses"></i>${empObj.role}</h3>`;
-          strVar = `<li class="list-group-item">Github: ${empObj.github}</li>`;
-     } else {
-          strRole = `<h3><i class="fas fa-user-graduate"></i>${empObj.role}</h3>`;
-          strVar = `<li class="list-group-item">School: ${empObj.school}</li>`;
-     }
-
-     var strCrd = `     
-     <div class="card bg-dark text-white mx-3 mt-3">
-     <div class="card-header">
-       <h2>${empObj.name}</h2>${strRole}
-     </div>
-     <div class="card-body bg-light mb-2">
-       <ul class="list-group">
-         <li class="list-group-item">ID: ${empObj.id}</li>
-         <li class="list-group-item">Email: ${empObj.email}</li>${strVar}
-       </ul>
-     </div>
-   </div>
-   `;
-     return strCrd;
+     var strCard = html(empObj);
+     return strCard;
 }
 
+// Append HTML to index.html
 function appendToFile(data) {
      fs.appendFile('./dist/index.html', data, (err) => {
           if (err) {
-              throw err;
+               throw err;
           }
      });
 }
 
+// Create empty index.html at start and populate with header html
 function init() {
      fs.writeFile('./dist/index.html', strHTML, (err) => {
           if (err) {
@@ -110,5 +95,6 @@ function init() {
      });
 }
 
+// MAIN
 init();
 ask();

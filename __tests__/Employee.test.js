@@ -1,3 +1,4 @@
+// Employee object JEST tests
 const Employee = require("../lib/Employee");
 
 describe("Employee Class", () => {
