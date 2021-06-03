@@ -19,12 +19,12 @@
 ## Tests
 
 - JEST tests exist for all objects (Employee, Manager, Engineer, Intern) to insure they return expected results for each method.
-- Located in __tests__
+- Located in ./_tests_ folder
 
 
 ## Demo/Walkthrough Video
 
-- Video demo/walkthrough available here: [www.youtube.com](www.youtube.com)
+- Video demo/walkthrough available here: [https://youtu.be/JBu2R8VMCPA](https://youtu.be/JBu2R8VMCPA)
 
 
 ## Screenprints 
