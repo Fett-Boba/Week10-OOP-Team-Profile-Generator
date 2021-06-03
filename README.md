@@ -1,5 +1,4 @@
 # Week10-OOP-Team-Profile-Generator
-Week10 Team Profile Generator
 
 
 ## Description
@@ -20,16 +19,12 @@ Week10 Team Profile Generator
 ## Tests
 
 - JEST tests exist for all objects (Employee, Manager, Engineer, Intern) to insure they return expected results for each method.
+- Located in __tests__
 
 ## Assets
 
+![Screen capture demonstrating the command line interface](img/usage.PNG)
 
-     update this.....
+![Screen capture of resulting index.html file](img/html.PNG)
 
-
-
-![Screen capture demonstrating the command line interface](img/commandLineDemo.PNG)
-
-![Screen capture of resulting README.md file](img/readmeDemo.PNG)
-
-
+---
