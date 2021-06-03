@@ -21,8 +21,14 @@
 - JEST tests exist for all objects (Employee, Manager, Engineer, Intern) to insure they return expected results for each method.
 - Located in __tests__
 
-## Assets
 
+## Demo/Walkthrough Video
+
+- Video demo/walkthrough available here: [www.youtube.com](www.youtube.com)
+
+
+## Screenprints 
+ 
 ![Screen capture demonstrating the command line interface](img/usage.PNG)
 
 ![Screen capture of resulting index.html file](img/html.PNG)
