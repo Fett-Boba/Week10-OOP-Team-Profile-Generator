@@ -5,58 +5,16 @@ const Manager = require('./lib/manager.js');
 const Engineer = require('./lib/engineer.js');
 const Intern = require('./lib/intern.js');
 
+const questions = require('./src/questions.js');
+const empBasics = questions.empBasics;
+const mgrOffice = questions.mgrOffice;
+const engGitId = questions.engGitId;
+const intSchool = questions.intSchool;
+const askAgain = questions.askAgain;
+
 const html = require('./src/html.js');
 const strHTML = html.head;
 const strTrl = html.trl;
-
-const empBasics = [
-     {
-          name: 'role',
-          type: 'list',
-          message: 'Employee role: ',
-          choices: ['Manager', 'Engineer', 'Intern'],
-     },
-     {
-          name: 'name',
-          type: 'input',
-          message: 'Employee Name: ',
-     },
-     {
-          name: 'id',
-          type: 'input',
-          message: 'Employee ID: ',
-     },
-     {
-          name: 'email',
-          type: 'input',
-          message: 'Employee email: ',
-     }
-];
-
-const mgrOffice = {
-     name: 'officeNum',
-     type: 'input',
-     message: 'Office Number: ',  
-}
-
-const engGitId = {
-     name: 'gitID',
-     type: 'input',
-     message: 'Github ID: ',
-}
-
-const intSchool = {
-     name: 'school',
-     type: 'input',
-     message: 'School: ',
-}
-
-const askAgain = {
-     name: 'goAgain',
-     type: 'list',
-     message: 'Enter another Employee? ',
-     choices: ['Yes', 'No'],
-}
 
 function ask() {
      inquirer.prompt(empBasics).then((answers) => {
